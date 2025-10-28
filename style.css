@@ -1,0 +1,131 @@
+/* Gaya umum */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f7fb;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Container utama: grid dua kolom */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* kiri dan kanan */
+  gap: 40px;
+  width: 90%;
+  max-width: 1200px;
+  margin-top: 50px;
+}
+
+/* Kartu */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* Input & Select */
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+/* Tombol */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #344c6e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #009933;
+}
+
+/* Kolom kanan berisi dua card */
+.right-side {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Info pengiriman */
+.info-list p {
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+.check {
+  color: #1e90ff;
+  margin-right: 5px;
+}
+
+/* Tabel */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+  text-align: center;
+}
+
+td:nth-child(3) {
+  background-color: #f9f9f9;
+  line-height: 1.6;
+}
+
+/* Label untuk Info */
+.label {
+  display: inline-block;
+  width: 80px;       /* atur jarak antara label dan isi */
+  font-weight: bold;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr; /* jadi satu kolom di HP */
+  }
+
+  .right-side {
+    order: 2;
+  }
+
+  .form-card {
+    order: 1;
+  }
+}
+
+.label {
+  display: inline-block;
+  width: 80px;
+  font-weight: bold;
+}

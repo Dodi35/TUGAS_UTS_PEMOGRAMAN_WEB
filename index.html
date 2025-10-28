@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input Data Mahasiswa (JavaScript)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <!-- Bagian Kiri: Form -->
+  <div class="card form-card">
+    <h2>Input Data Mahasiswa</h2>
+
+    <form id="formMahasiswa">
+      <label>Nama Lengkap</label>
+      <input type="text" id="nama" placeholder="Masukkan Nama" required>
+
+      <label>NIM</label>
+      <input type="text" id="nim" placeholder="Masukkan NIM" required>
+
+      <label>Semester</label>
+      <input type="text" id="semester" placeholder="Masukkan Semester" required>
+
+      <label>Program Studi</label>
+      <select id="prodi" required>
+        <option value="">Pilih</option>
+        <option value="Teknik Informatika">Teknik Informatika</option>
+        <option value="Sistem Informasi">Sistem Informasi</option>
+        <option value="Teknik Komputer">Teknik Komputer</option>
+      </select>
+
+      <label>Email</label>
+      <input type="email" id="email" placeholder="Masukkan Email" required>
+
+      <button type="submit">KIRIM DATA</button>
+    </form>
+  </div>
+
+  <!-- Bagian Kanan -->
+  <div class="right-side">
+    <!-- Informasi -->
+    <div class="card info-card">
+      <h2>Informasi Pengiriman</h2>
+      <ul class="info-list">
+        <li>✅ Data ditambahkan langsung ke tabel</li>
+        <li>✅ Tidak perlu refresh halaman</li>
+        <li>✅ Form otomatis dikosongkan kembali</li>
+      </ul>
+    </div>
+
+    <!-- Tabel Mahasiswa -->
+    <div class="card data-card">
+      <h2>Table Mahasiswa</h2>
+      <table id="tabelMahasiswa">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Info</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Script JavaScript -->
+<script>
+  const form = document.getElementById("formMahasiswa");
+  const tabelBody = document.querySelector("#tabelMahasiswa tbody");
+  let nomor = 1;
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault(); // Mencegah reload halaman
+
+    // Ambil nilai input
+    const nama = document.getElementById("nama").value;
+    const nim = document.getElementById("nim").value;
+    const semester = document.getElementById("semester").value;
+    const prodi = document.getElementById("prodi").value;
+    const email = document.getElementById("email").value;
+
+    // Buat baris tabel baru
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${nomor++}</td>
+      <td>${nama}</td>
+      <td>
+        <span class="label">Prodi:</span> ${prodi}<br>
+        <span class="label">Semester:</span> ${semester}
+      </td>
+    `;
+
+    // Tambahkan ke tabel
+    tabelBody.appendChild(row);
+
+    // Reset form
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
